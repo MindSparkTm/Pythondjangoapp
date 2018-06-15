@@ -1,5 +1,5 @@
 from django.views.generic import DetailView, ListView, UpdateView, CreateView, View
-from .models import Users,Testdata
+from .models import Users
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, reverse
 from django.contrib import messages

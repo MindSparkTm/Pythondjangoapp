@@ -15,14 +15,6 @@ class RegisterUserService(viewsets.ModelViewSet):
     search_fields = ('user_id',)
 
 
-class TestDataService(viewsets.ModelViewSet):
-    """ViewSet for the patientVisit class"""
-
-    queryset = models.Testdata.objects.all()
-    serializer_class = serializers.testdataserializer
-    permission_classes = [permissions.IsAuthenticated]
-    filter_backends = (filters.SearchFilter,)
-    search_fields = ('Id',)
 
 
 

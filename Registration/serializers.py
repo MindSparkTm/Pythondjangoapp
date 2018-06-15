@@ -17,11 +17,5 @@ class registerbillserializer(serializers.ModelSerializer):
 
 
 
-class testdataserializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = models.Testdata
-        fields = '__all__'
-
 
 
