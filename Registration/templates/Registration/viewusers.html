@@ -1,0 +1,86 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+  <script
+
+  src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.2/jspdf.plugin.autotable.js"></script>
+
+
+</head>
+<body>
+ {% csrf_token %}
+<div>
+    <table id="demotbl" class="display" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>UserId</th>
+            <th>Created</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Age</th>
+
+
+
+
+
+
+
+        </tr>
+    </thead>
+</table>
+
+</div>
+<script type="text/javascript">
+     $(document).ready(function () {
+
+
+
+   $.ajax({
+
+       url: "/registerusers/api/v1/registerservice/",
+            type: "get",
+
+
+
+            success: function (json) {
+                console.log(json)
+                if (json.length === 0) {
+                    alert("No users yet")
+
+                } else {
+
+                    var data = jQuery.map(json, function(el, i) {
+      return [[ el.user_id,el.created,el.name,el.phone,el.email,el.age]];
+    });
+
+    $('#demotbl').DataTable( {
+      "aaData": data,
+      "aoColumns": [
+          { "sTitle": "UserId" },
+          { "sTitle": "Created" },
+          { "sTitle": "Name" },
+          { "sTitle": "Phone" },
+          { "sTitle": "Email" },
+          { "sTitle": "Age" }
+    ]
+
+
+    })
+                }
+            }
+   })
+     })
+
+
+
+</script>
+
+
+</body>
+</html>

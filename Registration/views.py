@@ -15,7 +15,7 @@ class RegisterUsers(CreateView):
     model = Users
 
     def get(self, request):
-        return render(request, 'Registration/registerform.html')
+        return render(request, 'busararegistration/registerform.html')
 
     def post(self, request):
         count =0
@@ -98,4 +98,11 @@ class RegisterUsers(CreateView):
             logging.getLogger("error_logger").error("Unable to upload file. " + repr(e))
             messages.error(request, "Unable to upload file. " + repr(e))
         return HttpResponseRedirect(reverse("RegisterUsers"))
+
+class DisplayUsers(CreateView):
+    def get(self, request):
+        return render(request, 'busararegistration/viewusers.html')
+
+
+
 

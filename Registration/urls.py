@@ -23,6 +23,7 @@ urlpatterns = (
 urlpatterns += (
     # urls for patientVisit
     url(r'^register/$', views.RegisterUsers.as_view(), name='RegisterUsers'),
+    url(r'^viewusers/$', views.DisplayUsers.as_view(), name='DisplayUsers'),
 
 )
 
