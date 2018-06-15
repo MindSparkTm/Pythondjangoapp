@@ -6,6 +6,8 @@ from . import api
 router = routers.DefaultRouter()
 
 router.register(r'registerservice', api.RegisterUserService)
+router.register(r'testdataservice', api.TestDataService)
+
 
 
 
