@@ -15,7 +15,7 @@ class RegisterUsers(CreateView):
     model = Users
 
     def get(self, request):
-        return render(request, 'busararegistration/registerform.html')
+        return render(request, 'Registration/registerform.html')
 
     def post(self, request):
         count =0
@@ -101,7 +101,7 @@ class RegisterUsers(CreateView):
 
 class DisplayUsers(CreateView):
     def get(self, request):
-        return render(request, 'busararegistration/viewusers.html')
+        return render(request, 'Registration/viewusers.html')
 
 
 

@@ -43,7 +43,7 @@
 
    $.ajax({
 
-       url: "/registerusers/api/v1/registerservice/",
+       url: "/registration/api/v1/registerservice/",
             type: "get",
 
 
@@ -55,7 +55,7 @@
 
                 } else {
 
-                    var data = jQuery.map(json, function(el, i) {
+                    var data = jQuery.map(json.results, function(el, i) {
       return [[ el.user_id,el.created,el.name,el.phone,el.email,el.age]];
     });
 
