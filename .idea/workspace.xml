@@ -2,12 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d28d5c8-a4e6-4c2f-a8a2-9a536eef5061" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Registration/templates/base.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/css/style.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/fonts/HoltwoodOneSC.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/fonts/WorkSans-Regular.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/img/up.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/js/jquery.fileupload.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/js/jquery.iframe-transport.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/js/jquery.knob.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/js/jquery.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/js/jquery.ui.widget.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/js/script.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/BusaraApp/settings.py" afterPath="$PROJECT_DIR$/BusaraApp/settings.py" />
-      <change beforePath="$PROJECT_DIR$/Registration/api.py" afterPath="$PROJECT_DIR$/Registration/api.py" />
-      <change beforePath="$PROJECT_DIR$/Registration/serializers.py" afterPath="$PROJECT_DIR$/Registration/serializers.py" />
-      <change beforePath="$PROJECT_DIR$/Registration/urls.py" afterPath="$PROJECT_DIR$/Registration/urls.py" />
+      <change beforePath="$PROJECT_DIR$/Registration/templates/Registration/registerform.html" afterPath="$PROJECT_DIR$/Registration/templates/Registration/registerform.html" />
+      <change beforePath="$PROJECT_DIR$/Registration/views.py" afterPath="$PROJECT_DIR$/Registration/views.py" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change beforePath="$PROJECT_DIR$/static/css/styles.css" afterPath="$PROJECT_DIR$/static/css/styles.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,91 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Registration/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="796">
-              <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#83#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="api.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Registration/api.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="24" column="24" lean-forward="false" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="serializers.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Registration/serializers.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="22" column="31" lean-forward="false" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Registration/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Registration/admin.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="20" lean-forward="false" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="registerform.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Registration/templates/Registration/registerform.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" column="16" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Registration/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="55" lean-forward="false" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/BusaraApp/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="839">
-              <caret line="130" column="1" lean-forward="false" selection-start-line="130" selection-start-column="1" selection-end-line="130" selection-end-column="1" />
+            <state relative-caret-position="857">
+              <caret line="91" column="41" lean-forward="true" selection-start-line="91" selection-start-column="41" selection-end-line="91" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -126,15 +57,17 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/BusaraApp/urls.py" />
-        <option value="$PROJECT_DIR$/Registration/templates/Registration/registerform.html" />
         <option value="$PROJECT_DIR$/Registration/models.py" />
         <option value="$PROJECT_DIR$/Registration/admin.py" />
         <option value="$PROJECT_DIR$/Registration/forms.py" />
-        <option value="$PROJECT_DIR$/Registration/views.py" />
         <option value="$PROJECT_DIR$/Registration/api.py" />
         <option value="$PROJECT_DIR$/Registration/serializers.py" />
         <option value="$PROJECT_DIR$/Registration/urls.py" />
+        <option value="$PROJECT_DIR$/static/css/styles.css" />
+        <option value="$PROJECT_DIR$/Registration/templates/base.html" />
+        <option value="$PROJECT_DIR$/Registration/templates/Registration/registerform.html" />
         <option value="$PROJECT_DIR$/BusaraApp/settings.py" />
+        <option value="$PROJECT_DIR$/Registration/views.py" />
       </list>
     </option>
   </component>
@@ -196,6 +129,23 @@
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="Registration" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="BusaraApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BusaraApp" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BusaraApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BusaraApp" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BusaraApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BusaraApp" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -210,8 +160,15 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Registration/templates" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/Registration/templates/Registration" />
+      <recent name="$PROJECT_DIR$/static/js" />
+      <recent name="$PROJECT_DIR$/static/img" />
+      <recent name="$PROJECT_DIR$/static/fonts" />
+      <recent name="$PROJECT_DIR$/static/css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -303,7 +260,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Registration/views.py</url>
-          <line>70</line>
+          <line>69</line>
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="1" />
@@ -329,20 +286,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Registration/templates/Registration/registerform.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="16" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Registration/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -363,22 +312,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Registration/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="796">
-          <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#83#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Registration/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="22" column="31" lean-forward="false" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
           <folding>
-            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#0#20#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -388,7 +327,7 @@
         <state relative-caret-position="432">
           <caret line="24" column="24" lean-forward="false" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
           <folding>
-            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#0#20#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -398,15 +337,63 @@
         <state relative-caret-position="144">
           <caret line="8" column="55" lean-forward="false" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/jquery.fileupload.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="27" column="22" lean-forward="true" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Registration/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="10" lean-forward="false" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BusaraApp/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="839">
-          <caret line="130" column="1" lean-forward="false" selection-start-line="130" selection-start-column="1" selection-end-line="130" selection-end-column="1" />
+        <state relative-caret-position="378">
+          <caret line="21" column="36" lean-forward="true" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Registration/templates/Registration/registerform.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Registration/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="857">
+          <caret line="91" column="41" lean-forward="true" selection-start-line="91" selection-start-column="41" selection-end-line="91" selection-end-column="41" />
           <folding />
         </state>
       </provider>
