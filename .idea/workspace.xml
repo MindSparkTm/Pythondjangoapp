@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d28d5c8-a4e6-4c2f-a8a2-9a536eef5061" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/Registration/templates/Registration/viewusers.html" />
-      <change beforePath="$PROJECT_DIR$/Registration/urls.py" afterPath="$PROJECT_DIR$/Registration/urls.py" />
-      <change beforePath="$PROJECT_DIR$/Registration/views.py" afterPath="$PROJECT_DIR$/Registration/views.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Readme.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Samplerecord.csv" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -43,6 +43,8 @@
         <option value="$PROJECT_DIR$/Registration/api.py" />
         <option value="$PROJECT_DIR$/Registration/views.py" />
         <option value="$PROJECT_DIR$/Registration/urls.py" />
+        <option value="$PROJECT_DIR$/Readme.txt" />
+        <option value="$PROJECT_DIR$/Samplerecord.csv" />
       </list>
     </option>
   </component>
@@ -312,7 +314,7 @@
         <state relative-caret-position="857">
           <caret line="108" column="0" lean-forward="true" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
           <folding>
-            <element signature="e#0#83#0" expanded="true" />
+            <element signature="e#0#83#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -346,7 +348,7 @@
         <state relative-caret-position="36">
           <caret line="2" column="25" lean-forward="false" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -356,8 +358,24 @@
         <state relative-caret-position="522">
           <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Samplerecord.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
