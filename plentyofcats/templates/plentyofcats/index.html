@@ -1,0 +1,161 @@
+
+{% load static %}
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>Your one stop destination to get laid</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <!--[if lt IE 9]>
+   <![endif]-->
+    <!--
+    anatine, a free CSS web template by ZyPOP (zypopwebtemplates.com/)
+
+    Download: http://zypopwebtemplates.com/
+
+    License: Creative Commons Attribution
+    //-->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+</head>
+
+<body>
+
+<section id="body" class="width">
+    <aside id="sidebar" class="column-left">
+
+        <header>
+            <h1><a href="#">PlentyofCats</a></h1>
+
+            <h2>Share what you want!</h2>
+
+        </header>
+
+        <nav id="mainnav">
+            <ul>
+                <li class="selected-item"><a href="index.ejs">Post an AD</a></li>
+                <li><a href="/users">Men seeking Women</a></li>
+                <li><a href="#">Men seeking Men</a></li>
+                <li><a href="#">Women seeking Men</a></li>
+                <li><a href="#">Women seeking Women</a></li>
+            </ul>
+        </nav>
+
+
+
+    </aside>
+    <section id="content" class="column-right">
+
+        <article>
+            <h2>Date,Meet,Flirt,Fuck</h2>
+            <p>Welcome to PlentyofCats, a free dating add website.<strong>No Signups, No Logins, No Phonenumber.No Membership bullshit.Your privacy is in control. Be Anonymous.</strong>
+                <p>Cut the Bullshit and lets get down to business . Just post what you are looking for <strong>free</strong> and let people contact you.</p>
+
+
+                <form method="post" enctype="multipart/form-data">
+
+                {% csrf_token %}
+
+
+                    <div>
+                        <label class="desc" id="title1" for="Field1">Title of Post</label>
+                        <div>
+                            <textarea id="title" name="title"  spellcheck="true" rows="10" cols="5" tabindex="4"></textarea>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="desc" id="title3" for="Field3">
+                            Email
+                        </label>
+                        <div>
+                            <input id="email" name="email" type="email" spellcheck="false" value="" maxlength="255" tabindex="3">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="desc" id="title4" for="Field4">
+                            Message
+                        </label>
+
+                        <div>
+                            <textarea id="description" name="description" spellcheck="true" rows="10" cols="50" tabindex="4"></textarea>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="desc" id="title106" for="Field106">
+                            Select your preference
+                        </label>
+                        <div>
+                            <select id="category" name="category" style="font-family: Cursive;  font-size: 20px;" class="field select medium" tabindex="11">
+                                <option value="msw">Men Seeking Women</option>
+                                <option value="msm">Men Seeking Men</option>
+                                <option value="wsm">Women Seeking Men</option>
+                                <option value="wsw">Women Seeking Women</option>
+
+                            </select>
+                        </div>
+                    </div>
+
+                     <div>
+                        <label class="desc" id="title106" for="Field106">
+                            Select your country
+                        </label>
+                        <div>
+                            <select id="country" name="country" style="font-family: Cursive;  font-size: 20px;" class="field select medium" tabindex="11">
+                                <option value="kenya">Kenya</option>
+                                <option value="uganda">Uganda</option>
+
+                            </select>
+                        </div>
+                    </div>
+
+                       <div>
+                        <label class="desc" id="title3" for="Field3">
+                            Age
+                        </label>
+                        <div>
+                            <input id="age" name="age" type="number" value="" maxlength="255" tabindex="3">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="desc" id="title4" for="Field4">
+                            Upload image if you want (Optional).<br><strong>Press Control key to upload multiple files.</strong>
+                        </label>
+
+                        <div>
+                            <input name="uploadedfile" style="font-family: Cursive;  font-size: 20px;" id="uploadedfile" type="file" />
+                        </div>
+                    </div>
+
+
+                    <div>
+                        <div>
+                            <input type="submit" class="button" value="Submit Ad"></input>
+                        </div>
+                    </div>
+
+                </form>
+            {% if uploaded_file_url %}
+    <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+  {% endif %}
+        </article>
+
+
+
+
+
+
+
+        <footer class="clear">
+            <p>&copy; 2018 PlentyofCats by Surajit Das</p>
+        </footer>
+
+    </section>
+
+    <div class="clear"></div>
+
+</section>
+
+
+</body>
+</html>

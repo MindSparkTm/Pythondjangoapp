@@ -836,7 +836,7 @@ function getdata() {
 // ###################################End of rescription form handling################################
 
 
-// ###################################Registration form handling################################
+// ###################################plentyofcats form handling################################
 $(function () {
     loadfunctionsonpage();
 })
@@ -1066,7 +1066,7 @@ function getcountiess() {
 
 
 
-// ###################################End of Registration form handling#########################
+// ###################################End of plentyofcats form handling#########################
 
 
 
