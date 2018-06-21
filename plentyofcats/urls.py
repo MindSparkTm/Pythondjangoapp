@@ -5,6 +5,7 @@ from . import api
 
 router = routers.DefaultRouter()
 
+router.register(r'useradapi', api.Useradviewset)
 
 
 
@@ -22,6 +23,8 @@ urlpatterns = (
 urlpatterns += (
     # urls for patientVisit
     url(r'^index/$', views.Index.as_view(), name='Index'),
+    url(r'^index/menseekingwomen/$', views.Menseekingwomen.as_view(), name='Menseekingwomen'),
+    url(r'^getdatafromad/$', views.getdatafromad, name='getdatafromad'),
 
 )
 
