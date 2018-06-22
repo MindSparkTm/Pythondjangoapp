@@ -54,10 +54,40 @@ class Menseekingwomen(CreateView):
 
         return render(request, 'plentyofcats/menseekingwomen.html')
 
+class Menseekingmen(CreateView):
+
+    model = Userad
+
+    def get(self, request):
+
+
+        return render(request, 'plentyofcats/menseekingmen.html')
+
+
+class Womenseekingmen(CreateView):
+
+    model = Userad
+
+    def get(self, request):
+
+
+        return render(request, 'plentyofcats/womenseekingmen.html')
+
+
+class Womenseekingwomen(CreateView):
+
+    model = Userad
+
+    def get(self, request):
+
+
+        return render(request, 'plentyofcats/womenseekingwomen.html')
+
 def getdatafromad(request):
     if request.method == 'GET':
         category = request.GET['category']
         country = request.GET['country']
+        print('country',country)
         userad = Userad.objects.filter(category=category).filter(country=country).values()
         userad = list(userad)
         print('userad',userad)
