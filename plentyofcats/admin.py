@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django import forms
-from .models import Userad
+from .models import Userad,Replyad
 
 
 # Register your models here.
@@ -10,7 +10,19 @@ from .models import Userad
 
 class Useradinfo(admin.ModelAdmin):
 
-    list_display = ['user_id','created', 'uploaded_file','category','title','description', 'email','country','age','uploaded_file_url']
+    list_display = ['postid','created', 'uploaded_file','category','title','description', 'email','country','age','uploaded_file_url']
+
 admin.site.register(Userad, Useradinfo)
+
+
+class Replyadinfo(admin.ModelAdmin):
+        list_display = ['postid', 'created', 'uploaded_file', 'description', 'email',
+                         'uploaded_file_url']
+
+admin.site.register(Replyad, Replyadinfo)
+
+
+
+
 
 

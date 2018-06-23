@@ -12,8 +12,14 @@ class useradserializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Userad
-        fields = ('user_id', 'created', 'title','description','age','country','category')
+        fields = ('postid', 'created', 'title','description','age','country','category')
 
+
+class replyadserializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.Replyad
+        fields = ('postid', 'created','description','email')
 
 
 
