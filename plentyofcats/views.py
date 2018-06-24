@@ -155,7 +155,7 @@ class Postdetails(CreateView):
         return render(request, 'plentyofcats/displaypost.html',{'Useradobject':useradobject})
 
 def sendemail(sender,recipient,subject,content,url):
-    sg = sendgrid.SendGridAPIClient(apikey="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")
+    sg = sendgrid.SendGridAPIClient(apikey="")
     from_email = Email(sender)
     to_email = Email(recipient)
     subject = subject
