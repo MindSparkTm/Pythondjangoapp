@@ -24,7 +24,7 @@
     <aside id="sidebar" class="column-left">
 
         <header>
-            <h1><a href="#">PlentyofCats</a></h1>
+            <h1><a id="indexpage">PlentyofCats</a></h1>
 
             <h2>Share what you want!</h2>
 
@@ -97,6 +97,13 @@ for (i = 0; i < coll.length; i++) {
 
          })
 
+      $('#indexpage').click(function (e) {
+             e.preventDefault()
+
+             window.location.href="/plentyofcats/index"
+
+         })
+
      $('#menseekingwomen').click(function (e) {
              e.preventDefault()
 
@@ -132,7 +139,7 @@ for (i = 0; i < coll.length; i++) {
 
 
         <footer class="clear">
-            <p>&copy; 2018 PlentyofCats by Anonymous</p>
+            <p>&copy; 2018 PlentyofCats by Anonymous <img src="{% static 'img/poc.png' %}" alt="plentyofcats"></p>
         </footer>
 
     </section>

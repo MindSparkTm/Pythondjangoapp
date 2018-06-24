@@ -23,7 +23,7 @@ class Index(CreateView):
     model = Userad
 
     def get(self, request):
-        return render(request, 'plentyofcats/index.html')
+        return render(request, 'plentyofcats/index.html',{"status":"initial"})
 
 
     def post(self,request):
@@ -94,7 +94,7 @@ def getdatafromad(request):
         category = request.GET['category']
         country = request.GET['country']
         print('country',country)
-        userad = Userad.objects.filter(category=category).filter(country=country).values()
+        userad = Userad.objects.filter(category=category).filter(country=country).order_by('-postid').values()
         userad = list(userad)
         print('userad',userad)
 

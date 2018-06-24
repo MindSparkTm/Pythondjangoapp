@@ -25,7 +25,7 @@
     <aside id="sidebar" class="column-left">
 
         <header>
-            <h1><a href="#">PlentyofCats</a></h1>
+            <h1><a id="indexpage">PlentyofCats</a></h1>
 
             <h2>Share what you want!</h2>
 
@@ -47,7 +47,7 @@
     <section id="content" class="column-right">
 
         <article>
-         <h2 align="center">Showing ads for KENYA</h2>
+         <h2 align="center">Showing latest ads for KENYA </h2>
 
 
 <br><br>
@@ -179,6 +179,7 @@
                          "searching": false,
                          "bLengthChange": false,
                          "bInfo": false,
+                          "order": [[ 3, "desc" ]],
 
 
                          "aaData": data,
@@ -206,6 +207,8 @@
                          if(el.title.length>20){
                              el.title = el.title.substring(0,10) + '..........';
                          }
+                         el.created = el.created.substring(0,10);
+
                          return [[el.created, el.postid, el.title, 'More']];
                      });
 
@@ -213,6 +216,7 @@
                          "searching": false,
                          "bLengthChange": false,
                          "bInfo": false,
+                          "order": [[ 3, "desc" ]],
 
 
                          "aaData": data,
@@ -287,6 +291,7 @@
                              "searching": false,
                              "bLengthChange": false,
                              "bInfo": false,
+                              "order": [[ 3, "desc" ]],
 
 
                              "aaData": data,
@@ -314,6 +319,8 @@
                              if(el.title.length>20) {
                                  el.title = el.title.substring(0, 10) + '..........';
                              }
+                             el.created = el.created.substring(0,10);
+
                              return [[el.created, el.postid, el.title, 'More']];
                          });
 
@@ -321,6 +328,7 @@
                              "searching": false,
                              "bLengthChange": false,
                              "bInfo": false,
+                              "order": [[ 3, "desc" ]],
 
 
                              "aaData": data,
@@ -382,7 +390,12 @@
              window.location.href="/plentyofcats/womenseekingwomen"
 
          })
+ $('#indexpage').click(function (e) {
+             e.preventDefault()
 
+             window.location.href="/plentyofcats/index"
+
+         })
 </script>
 
 
@@ -397,7 +410,7 @@
 
 
         <footer class="clear">
-            <p>&copy; 2018 PlentyofCats by Anonymous</p>
+            <p>&copy; 2018 PlentyofCats by Anonymous <img src="{% static 'img/poc.png' %}" alt="plentyofcats"></p>
         </footer>
 
     </section>

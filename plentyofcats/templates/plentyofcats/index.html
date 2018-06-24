@@ -24,7 +24,7 @@
     <aside id="sidebar" class="column-left">
 
         <header>
-            <h1><a href="#">PlentyofCats</a></h1>
+            <h1><a id="indexpage">PlentyofCats</a></h1>
 
             <h2>Share what you want!</h2>
 
@@ -46,14 +46,16 @@
     <section id="content" class="column-right">
 
         <article>
-            <h2>Date,Meet,Flirt,Fuck </h2>
+            <h2>Date,Meet,Flirt,Fuck <img src="{% static 'img/poc.png' %}" alt="plentyofcats"></img> </h2><br><br>
             <p>Welcome to PlentyofCats, a free dating add website.</p><strong>No Signups, No Logins, No Phonenumber.No Membership bullshit.Your privacy is in control. Be Anonymous.</strong>
                 <p>Cut the Bullshit and lets get down to business . Just post what you are looking for <strong>free</strong> and let people contact you.</p>
 
 
-                <form method="post" enctype="multipart/form-data">
+                <form method="post" enctype="multipart/form-data" onsubmit="return validateForm()" name="Form">
 
                 {% csrf_token %}
+
+                            <input id="status" name="status" type="hidden" value="{{ status }}">
 
 
                     <div>
@@ -148,7 +150,7 @@
 
                     <div>
                         <div>
-                            <input type="submit" class="button" value="Submit Ad"></input>
+                            <input type="submit" class="button" value="Submit Ad" ></input>
                         </div>
                     </div>
 
@@ -196,7 +198,50 @@
     }
 }
 
+
+function validateForm()
+    {
+        var a=document.forms["Form"]["title"].value;
+        var b=document.forms["Form"]["description"].value;
+        var c=document.forms["Form"]["email"].value;
+        var e=document.forms["Form"]["age"].value;
+
+        if (a==null || a=="",b==null || b=="",c==null || c=="",e==null||e=="")
+        {
+
+
+            alert("Please Fill All Required Field");
+            return false;
+        }
+
+        else {
+            var vidFileLength = $("#uploadedfile")[0].files.length;
+            if (vidFileLength === 0) {
+                alert("Please upload one picture.");
+                return false;
+
+            }
+
+            else{
+
+                alert('Your post has been successfully submitted');
+            }
+        }
+
+
+
+
+
+
+
+
+
+    }
      $(document).ready(function () {
+
+         var s = $('#status').val();
+         console.log('ss',s)
+
 
          sortSelect('#country', 'text', 'asc')
 
@@ -206,6 +251,12 @@
          });
      });
      $('#postad').click(function (e) {
+             e.preventDefault()
+
+             window.location.href="/plentyofcats/index"
+
+         })
+     $('#indexpage').click(function (e) {
              e.preventDefault()
 
              window.location.href="/plentyofcats/index"
@@ -247,7 +298,7 @@
 
 
         <footer class="clear">
-            <p>&copy; 2018 PlentyofCats by Anonymous</p>
+            <p>&copy; 2018 PlentyofCats by Anonymous<img src="{% static 'img/poc.png' %}" alt="plentyofcats"></p>
         </footer>
 
     </section>
