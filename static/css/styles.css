@@ -26,7 +26,7 @@ th, td {
 th {
 	color:#fff;
 	border-top:1px solid #222;
-	background-color:#2F2F2F;
+	background-color:#999;
 }
 td {
 	border-bottom:1px solid #f4f4f4;
@@ -124,7 +124,7 @@ h1 {
 	font-size:1.4em;
 }
 h2 {
-	color: #666;
+	color: #6fab4f;
 	font-size:1.8em;
 	font-weight:bold;
 	padding:0 0 5px;
@@ -231,6 +231,8 @@ nav#mainnav li {
 }
 nav#mainnav li.selected-item  {
 	border-bottom:none;
+
+
 }
 nav#mainnav li.selected-item a,
 nav#mainnav li.selected-item a:hover {
@@ -238,9 +240,13 @@ nav#mainnav li.selected-item a:hover {
 	font-weight:bold;
 	background: #fff;
 }
+
+
+
+
 nav#mainnav li a:hover {
-	background:#669D48;
-	color: #fff;
+	background:#fff;
+	color: #6FAB4F;
 	text-decoration:none;
 }
 nav#mainnav li a {
@@ -263,9 +269,10 @@ border-bottom: 1px solid #eee;
 
 article h2 {
     padding-bottom: 0;
-	line-height: 1.1em;
-	letter-spacing: -2px;
-   font-size: 2.5em;
+    line-height: 1.1em;
+    letter-spacing: -2px;
+    font-size: 2em;
+    text-align:  center;
 }
 
 article .article-info {
@@ -379,7 +386,7 @@ form > div > fieldset > div > div {
 }
 form > div > label,
 legend {
-	width: 25%;
+	width: 10em;
 	float: left;
 	padding-right: 10px;
 }

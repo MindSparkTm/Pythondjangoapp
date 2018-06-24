@@ -101,9 +101,27 @@
                             Select your country
                         </label>
                         <div>
-                            <select id="country" name="country" style="font-family: Cursive;  font-size: 20px;" class="field select medium" tabindex="11">
-                                <option value="kenya">Kenya</option>
+                            <select id="country" name="country" style="font-family: Cursive;  font-size: 20px;" class="field select medium" tabindex="11" onkeyup="filterFunction()">
+                                <option value="algeria">Algeria</option>
+                                <option value="angola">Angola</option>
+                                <option value="botswana">Botswana</option>
+                                <option value="burundi">Burundi</option>
+                                <option value="cameroon">Cameroon</option>
+                                <option value="congo">Congo</option>
+                                <option value="ivorycoast">Ivorycoast</option>
+                                <option value="egypt">Egypt</option>
+                                <option value="eritrea">Eritrea</option>
+                                <option value="ethiopia">Ethiopia</option>
+                                <option value="nigeria">Nigeria</option>
+                                <option value="ghana">Ghana</option>
+                                <option value="sudan">Sudan</option>
+                                <option value="southafrica">South Africa</option>
+                                <option value="tanzania">Tanzania</option>
                                 <option value="uganda">Uganda</option>
+                                <option value="zimbabwe">Zimbabwe</option>
+                                <option value="morocco">Morocco</option>
+                                <option value="others">Others</option>
+                                <option value="kenya">Kenya</option>
 
                             </select>
                         </div>
@@ -145,6 +163,48 @@
 
 
 <script type="text/javascript">
+    var sortSelect = function (select, attr, order) {
+    if(attr === 'text'){
+        if(order === 'asc'){
+            $(select).html($(select).children('option').sort(function (x, y) {
+                return $(x).text().toUpperCase() < $(y).text().toUpperCase() ? -1 : 1;
+            }));
+            $(select).get(0).selectedIndex = 0;
+        }// end asc
+        if(order === 'desc'){
+            $(select).html($(select).children('option').sort(function (y, x) {
+                return $(x).text().toUpperCase() < $(y).text().toUpperCase() ? -1 : 1;
+            }));
+            $(select).get(0).selectedIndex = 0;
+        }// end desc
+    }
+
+};
+
+    function filterFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("myDropdown");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+        if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+        } else {
+            a[i].style.display = "none";
+        }
+    }
+}
+
+     $(document).ready(function () {
+
+         sortSelect('#country', 'text', 'asc')
+
+         $('.selected-item').click(function (e) {
+             $('.selected-item').removeClass('selected');
+             $(this).addClass('selected');
+         });
+     });
      $('#postad').click(function (e) {
              e.preventDefault()
 

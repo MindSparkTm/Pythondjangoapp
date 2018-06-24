@@ -48,8 +48,9 @@
 
         <article>
             <h2>Title:{{ useradobj.title }}&nbsp;&nbsp;<strong>Posted on:{{ useradobj.created }}</strong>&nbsp;&nbsp;Age:{{ useradobj.age }} </h2>
+            <br><br>
            <p>{{ useradobj.description }}</p>
-            <img src={{ useradobj.uploaded_file_url}}></img>
+            <img src={{ useradobj.uploaded_file_url}} alt="ImageUnavailable"></img>
         </article>
     <br>
 <label>Reply below to this ad</label>

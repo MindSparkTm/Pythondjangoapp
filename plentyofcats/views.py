@@ -159,7 +159,7 @@ def sendemail(sender,recipient,subject,content,url):
     from_email = Email(sender)
     to_email = Email(recipient)
     subject = subject
-    content = Content("text", content + "Imageurl:-"+url)
+    content = Content("text", content+url)
 
     mail = Mail(from_email, subject, to_email, content)
     response = sg.client.mail.send.post(request_body=mail.get())
