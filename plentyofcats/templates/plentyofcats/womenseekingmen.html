@@ -85,9 +85,10 @@
     <table id="demotbl" class="display" cellspacing="0" width="100%">
     <thead>
         <tr>
-            <th>Created</th>
+           <th>Created</th>
+            <th>Postid</th>
             <th>title</th>
-
+            <th>More</th>
 
 
 
@@ -123,8 +124,8 @@
                 } else {
 
 
-                    var data = jQuery.map(json, function(el, i) {
-      return [[ el.created,el.title]];
+                  var data = jQuery.map(json, function(el, i) {
+      return [[ el.created,el.postid,el.title,'More']];
     });
 
     $('#demotbl').DataTable( {
@@ -136,14 +137,44 @@
       "aaData": data,
       "aoColumns": [
           { "sTitle": "Created" },
+          {"postid":"Postid"},
 
-          {"sTitle": "Title"}
+          {"sTitle": "Title"},
 
+
+          {
+              "targets": -1,
+              "data": null,
+              "defaultContent": "<button id ='btn2' name='btn2'>Click for more</button>"
+          }
           ]
 
 
 
     })
+
+                       $('#demotbl tbody').on( 'click', 'button#btn2', function (e) {
+        e.preventDefault();
+        console.log('selected')
+        var tr = $(this).closest('tr');
+        var rows = $('#demotbl').DataTable().row(tr);
+
+        var info = rows.data();
+        var dat = [info];
+        var id = info[1];
+
+
+        console.log( "patientinfo",info);
+        window.open("displaypost/id/"+id,'_blank');
+
+
+
+
+
+
+
+
+    } );
                 }
             }
    })
@@ -176,7 +207,7 @@
 
 
                     var data = jQuery.map(json, function(el, i) {
-      return [[ el.created,el.title]];
+      return [[ el.created,el.postid,el.title,'More']];
     });
 
     $('#demotbl').DataTable( {
@@ -188,15 +219,21 @@
       "aaData": data,
       "aoColumns": [
           { "sTitle": "Created" },
+          {"postid":"Postid"},
 
-          {"sTitle": "Title"}
+          {"sTitle": "Title"},
 
+
+          {
+              "targets": -1,
+              "data": null,
+              "defaultContent": "<button id ='btn2' name='btn2'>Click for more</button>"
+          }
           ]
 
 
 
-    })
-                }
+    })     }
             }
    })
 

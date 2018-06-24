@@ -30,6 +30,9 @@ urlpatterns += (
     url(r'^womenseekingmen/$', views.Womenseekingmen.as_view(), name='Womenseekingmen'),
     url(r'^womenseekingwomen/$', views.Womenseekingwomen.as_view(), name='Womenseekingwomen'),
     url(r'^menseekingmen/displaypost/(?P<id>\S+)/$', views.Postdetails.as_view(), name='Postdetails'),
+    url(r'^menseekingwomen/displaypost/(?P<id>\S+)/$', views.Postdetails.as_view(), name='Postdetails'),
+    url(r'^womenseekingmen/displaypost/(?P<id>\S+)/$', views.Postdetails.as_view(), name='Postdetails'),
+    url(r'^womenseekingwomen/displaypost/(?P<id>\S+)/$', views.Postdetails.as_view(), name='Postdetails'),
 
     url(r'^getdatafromad/$', views.getdatafromad, name='getdatafromad'),
     url(r'^replyadpost/$', views.replyforad, name='replyforad'),
