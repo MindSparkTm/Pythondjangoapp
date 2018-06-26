@@ -3,19 +3,10 @@
 <!doctype html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="viewport" content="width=1280, initial-scale=1">
     <title>Your one stop destination to get laid</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <!--[if lt IE 9]>
-   <![endif]-->
-    <!--
-    anatine, a free CSS web template by ZyPOP (zypopwebtemplates.com/)
 
-    Download: http://zypopwebtemplates.com/
-
-    License: Creative Commons Attribution
-    //-->
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 </head>
 
 <body>
@@ -75,6 +66,15 @@
 
 
 <script type="text/javascript">
+
+    $('#document').ready(function (e) {
+             var siteWidth = 1280;
+var scale = screen.width /siteWidth
+
+document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');
+
+
+    })
 
     var coll = document.getElementsByClassName("collapsible");
 var i;

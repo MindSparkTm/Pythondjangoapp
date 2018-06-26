@@ -3,7 +3,7 @@
 <!doctype html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="viewport" content="width=1280, initial-scale=1">
     <title>Your one stop destination to get laid</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
@@ -16,7 +16,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.2/jspdf.plugin.autotable.js"></script>
 
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 </head>
 
 <body>
@@ -27,7 +26,7 @@
         <header>
             <h1><a id="indexpage">PlentyofCats</a></h1>
 
-            <h2>Share what you want!</h2>
+            <p style="color:white; font-size:0.8em;margin-left:4em">Share what you want!</p>
 
         </header>
 
@@ -93,15 +92,19 @@
 
                 </form>
 
-<br><br>
-            <div>
-    <table id="demotbl" class="display" cellspacing="0" width="100%">
-    <thead>
+           <br>
+            <div style="width: 80%">
+
+    <table id="demotbl" class="display" cellspacing="0" width="auto">
+    <thead style="display:none;">
         <tr>
-            <th>Created</th>
             <th>Postid</th>
+            <th>Created</th>
             <th>title</th>
             <th>More</th>
+
+
+
 
 
 
@@ -148,217 +151,229 @@
 }
 
      $(document).ready(function () {
+         var siteWidth = 1280;
+var scale = screen.width /siteWidth
+
+document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');
+
 
          sortSelect('#country', 'text', 'asc')
 
+ $.ajax({
 
-   $.ajax({
+             url: "/plentyofcats/getdatafromad",
+             type: "get",
+             data: {
+                 "category": "wsw",
+                 "country": "kenya",
 
-       url: "/plentyofcats/getdatafromad",
-            type: "get",
-            data: {
-               "category":"wsw",
-                "country":"kenya",
+             },
 
-            },
-
-            success: function (json) {
-                console.log(json)
-                if (json.length === 0) {
-           var data = jQuery.map(json, function(el, i) {
-      return [[ '--','--','--','--']];
-    });
-
-
-    $('#demotbl').DataTable( {
-        "searching":false,
-        "bLengthChange": false,
-               "bInfo" : false,
-         "order": [[ 3, "desc" ]],
+             success: function (json) {
+                 console.log(json)
+                 if (json.length === 0) {
+                     var data = jQuery.map(json, function (el, i) {
+                         return [['--', '--', '--', '--']];
+                     });
 
 
-      "aaData": data,
-      "aoColumns": [
-          { "sTitle": "Created" },
-          {"postid":"Postid"},
-
-          {"sTitle": "Title"},
-
-
-          {
-              "targets": -1,
-              "data": null,
-              "defaultContent": "<button id ='btn2' style='width: 10em;  height: 2em;'name='btn2'>Click to see post</button>"
-          }
-          ]
+                     $('#demotbl').DataTable({
+                         "searching": false,
+                         "bLengthChange": false,
+                         "bInfo": false,
+                          "order": [[ 3, "desc" ]],
+                          fixedColumns:   {
+            heightMatch: 'none'
+        },
 
 
+                         "aaData": data,
+                         "aoColumns": [
+                             {"postid": "Postid"},
 
-    })
+                             {"sTitle": "Created"},
 
-                } else {
+                             {"sTitle": "Title"},
 
 
-         var data = jQuery.map(json, function(el, i) {
-              if(el.title.length>20){
+                             {
+                                 "targets": -1,
+                                 "data": null,
+                                 "defaultContent": "<button id ='btn2' name='btn2' style='background: transparent;color: #0099CC;border: 2px solid #0099CC;border-radius: 6px;border-radius: 6px;'>Click to see post</button>"
+                             }
+                         ]
+
+
+                     })
+
+                 } else {
+
+
+                     var data = jQuery.map(json, function (el, i) {
+                       /*  if(el.title.length>20){
                              el.title = el.title.substring(0,10) + '..........';
-                         }
-             el.created = el.created.substring(0,10);
-
-      return [[ el.created,el.postid,el.title,'More']];
-    });
-
-    $('#demotbl').DataTable( {
-        "searching":false,
-        "bLengthChange": false,
-               "bInfo" : false,
-         "order": [[ 3, "desc" ]],
-
-
-      "aaData": data,
-      "aoColumns": [
-          { "sTitle": "Created" },
-          {"postid":"Postid"},
-
-          {"sTitle": "Title"},
-
-
-          {
-              "targets": -1,
-              "data": null,
-              "defaultContent": "<button id ='btn2' style='width: 10em;  height: 2em;'name='btn2'>Click to see post</button>"
-          }
-          ]
-
-
-
-    })
-
-                       $('#demotbl tbody').on( 'click', 'button#btn2', function (e) {
-        e.preventDefault();
-        console.log('selected')
-        var tr = $(this).closest('tr');
-        var rows = $('#demotbl').DataTable().row(tr);
-
-        var info = rows.data();
-        var dat = [info];
-        var id = info[1];
-
-
-        console.log( "patientinfo",info);
-        window.open("displaypost/id/"+id,'_blank');
-
-
-
-
-
-
-
-
-    } );
-                }
-            }
-   })
-
-
-     })
-
-  function oncountrydropdownchange(country){
-      $('h2').text('')
-      var countryname = country.value;
-      var countryname = countryname.toUpperCase();
-      $('h2').text('Showing ads for  '+countryname)
-
-         var table = $('#demotbl').DataTable();
-         table.destroy()
-
-         console.log('country',country.value)
-
-          $.ajax({
-
-       url: "/plentyofcats/getdatafromad",
-            type: "get",
-            data: {
-               "category":"wsw",
-                "country":country.value,
-
-            },
-
-            success: function (json) {
-                console.log(json)
-                if (json.length === 0) {
-                     var data = jQuery.map(json, function(el, i) {
-      return [[ '--','--','--','--']];
-    });
-
-    $('#demotbl').DataTable( {
-        "searching":false,
-        "bLengthChange": false,
-               "bInfo" : false,
-         "order": [[ 3, "desc" ]],
-
-
-      "aaData": data,
-      "aoColumns": [
-          { "sTitle": "Created" },
-          {"postid":"Postid"},
-
-          {"sTitle": "Title"},
-
-
-          {
-              "targets": -1,
-              "data": null,
-              "defaultContent": "<button id ='btn2' style='width: 10em;  height: 2em;'name='btn2'>Click to see post</button>"
-          }
-          ]
-
-
-
-    })
-
-                } else {
-
-
-                    var data = jQuery.map(json, function(el, i) {
-                         if(el.title.length>20){
-                             el.title = el.title.substring(0,10) + '..........';
-                         }
+                         }*/
                          el.created = el.created.substring(0,10);
-      return [[ el.created,el.postid,el.title,'More']];
-    });
 
-    $('#demotbl').DataTable( {
-        "searching":false,
-        "bLengthChange": false,
-               "bInfo" : false,
-         "order": [[ 3, "desc" ]],
+                         return [[el.postid,el.created,el.title, 'More']];
+                     });
 
-
-      "aaData": data,
-      "aoColumns": [
-          { "sTitle": "Created" },
-          {"postid":"Postid"},
-
-          {"sTitle": "Title"},
-
-
-          {
-              "targets": -1,
-              "data": null,
-              "defaultContent": "<button id ='btn2' style='width: 10em;  height: 2em;'name='btn2' name='btn2'>Click to see post</button>"
-          }
-          ]
+                     $('#demotbl').DataTable({
+                         "searching": false,
+                         "bLengthChange": false,
+                         "bInfo": false,
+                          "order": [[ 3, "desc" ]],
+                          fixedColumns:   {
+            heightMatch: 'none'
+        },
 
 
 
-    })     }
-            }
-   })
+                         "aaData": data,
+                         "aoColumns": [
+                             {"postid": "Postid"},
 
+                             {"sTitle": "Created"},
+
+                             {"sTitle": "Title"},
+
+
+                             {
+                                 "targets": -1,
+                                 "data": null,
+                                 "defaultContent": "<button id ='btn2' name='btn2' style='background: transparent;color: #0099CC;border: 2px solid #0099CC;border-radius: 6px;border-radius: 6px;'>Click to see post</button>"
+                             }
+                         ]
+
+
+                     })
+
+                     $('#demotbl tbody').on('click', 'button#btn2', function (e) {
+                         e.preventDefault();
+                         console.log('selected')
+                         var tr = $(this).closest('tr');
+                         var rows = $('#demotbl').DataTable().row(tr);
+
+                         var info = rows.data();
+                         var dat = [info];
+                         var id = info[0];
+
+
+                         console.log("patientinfo", info);
+                         window.open("displaypost/id/" + id, '_blank');
+
+
+                     });
+                 }
+             }
+         })
+
+     });
+
+         function oncountrydropdownchange(country) {
+             $('h2').text('')
+             var countryname = country.value;
+             var countryname = countryname.toUpperCase();
+             $('h2').text('Showing ads for  ' + countryname)
+
+             var table = $('#demotbl').DataTable();
+             table.destroy()
+
+             console.log('country', country.value)
+
+             $.ajax({
+
+                 url: "/plentyofcats/getdatafromad",
+                 type: "get",
+                 data: {
+                     "category": "wsw",
+                     "country": country.value,
+
+                 },
+
+                 success: function (json) {
+                     console.log(json)
+                     if (json.length === 0) {
+                         var data = jQuery.map(json, function (el, i) {
+                             return [['--', '--', '--', '--']];
+                         });
+
+                         $('#demotbl').DataTable({
+                             "searching": false,
+                             "bLengthChange": false,
+                             "bInfo": false,
+                              "order": [[ 3, "desc" ]],
+                              fixedColumns:   {
+            heightMatch: 'none'
+        },
+
+
+                             "aaData": data,
+                             "aoColumns": [
+                                 {"postid": "Postid"},
+
+                                 {"sTitle": "Created"},
+
+                                 {"sTitle": "Title"},
+
+
+                                 {
+                                     "targets": -1,
+                                     "data": null,
+                                 "defaultContent": "<button id ='btn2' name='btn2' style='background: transparent;color: #0099CC;border: 2px solid #0099CC;border-radius: 6px;border-radius: 6px;'>Click to see post</button>"
+                                 }
+                             ]
+
+
+                         })
+
+                     } else {
+
+
+                         var data = jQuery.map(json, function (el, i) {
+                             /*if(el.title.length>20) {
+                                 el.title = el.title.substring(0, 10) + '..........';
+                             }*/
+                             el.created = el.created.substring(0,10);
+
+                         return [[el.postid,el.created,el.title, 'More']];
+                         });
+
+                         $('#demotbl').DataTable({
+                             "searching": false,
+                             "bLengthChange": false,
+                             "bInfo": false,
+                              "order": [[ 3, "desc" ]],
+                              fixedColumns:   {
+            heightMatch: 'none'
+        },
+
+
+                             "aaData": data,
+                             "aoColumns": [
+                                 {"postid": "Postid"},
+
+                                 {"sTitle": "Created"},
+
+                                 {"sTitle": "Title"},
+
+
+                                 {
+                                     "targets": -1,
+                                     "data": null,
+                                 "defaultContent": "<button id ='btn2' name='btn2' style='background: transparent;color: #0099CC;border: 2px solid #0099CC;border-radius: 6px;border-radius: 6px;'>Click to see post</button>"
+                                 }
+                             ]
+
+
+                         })
+                     }
+                 }
+             })
 
 
          }
+
 
          $('#postad').click(function (e) {
              e.preventDefault()

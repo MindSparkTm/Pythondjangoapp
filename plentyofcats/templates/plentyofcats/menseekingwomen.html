@@ -3,7 +3,7 @@
 <!doctype html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="viewport" content="width=1280, initial-scale=1">
     <title>Your one stop destination to get laid</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
@@ -27,7 +27,7 @@
         <header>
             <h1><a id="indexpage">PlentyofCats</a></h1>
 
-            <h2>Share what you want!</h2>
+            <p style="color:white; font-size:0.8em;margin-left:4em">Share what you want!</p>
 
         </header>
 
@@ -95,15 +95,16 @@
 
 
                 </form>
-
+<br>
 
 
             <div>
-    <table id="demotbl" class="display" cellspacing="0" width="100%">
-    <thead>
-        <tr>
-            <th>Created</th>
+    <table id="demotbl" class="display" cellspacing="0" width="auto">
+    <thead style="display:none;">
+        <tr style="height: 50px;">
             <th>Postid</th>
+
+            <th>Created</th>
             <th>title</th>
             <th>More</th>
 
@@ -153,6 +154,10 @@
 }
 
      $(document).ready(function () {
+         var siteWidth = 1280;
+var scale = screen.width /siteWidth
+
+document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');
 
          sortSelect('#country', 'text', 'asc')
          $.ajax({
@@ -178,12 +183,16 @@
                          "bLengthChange": false,
                          "bInfo": false,
                           "order": [[ 3, "desc" ]],
+                          fixedColumns:   {
+            heightMatch: 'none'
+        },
 
 
                          "aaData": data,
                          "aoColumns": [
-                             {"sTitle": "Created"},
                              {"postid": "Postid"},
+
+                             {"sTitle": "Created"},
 
                              {"sTitle": "Title"},
 
@@ -191,7 +200,7 @@
                              {
                                  "targets": -1,
                                  "data": null,
-                                 "defaultContent": "<button id ='btn2' style='width: 10em;  height: 2em;'name='btn2'>Click to see post</button>"
+                                 "defaultContent": "<button id ='btn2' name='btn2' style='background: transparent;color: #0099CC;border: 2px solid #0099CC;border-radius: 6px;border-radius: 6px;'>Click to see post</button>"
                              }
                          ]
 
@@ -202,24 +211,30 @@
 
 
                      var data = jQuery.map(json, function (el, i) {
-                         if(el.title.length>20){
+                       /*  if(el.title.length>20){
                              el.title = el.title.substring(0,10) + '..........';
-                         }
-                                                  el.created = el.created.substring(0,10);
+                         }*/
+                         el.created = el.created.substring(0,10);
 
-                         return [[el.created, el.postid, el.title, 'More']];
+                         return [[el.postid,el.created,el.title, 'More']];
                      });
 
                      $('#demotbl').DataTable({
                          "searching": false,
                          "bLengthChange": false,
                          "bInfo": false,
-                         "order": [[ 3, "desc" ]],
+                          "order": [[ 3, "desc" ]],
+                          fixedColumns:   {
+            heightMatch: 'none'
+        },
+
+
 
                          "aaData": data,
                          "aoColumns": [
-                             {"sTitle": "Created"},
                              {"postid": "Postid"},
+
+                             {"sTitle": "Created"},
 
                              {"sTitle": "Title"},
 
@@ -227,7 +242,7 @@
                              {
                                  "targets": -1,
                                  "data": null,
-                                 "defaultContent": "<button id ='btn2' style='width: 10em;  height: 2em;'name='btn2'>Click to see post</button>"
+                                 "defaultContent": "<button id ='btn2' name='btn2' style='background: transparent;color: #0099CC;border: 2px solid #0099CC;border-radius: 6px;border-radius: 6px;'>Click to see post</button>"
                              }
                          ]
 
@@ -242,7 +257,7 @@
 
                          var info = rows.data();
                          var dat = [info];
-                         var id = info[1];
+                         var id = info[0];
 
 
                          console.log("patientinfo", info);
@@ -289,12 +304,16 @@
                              "bLengthChange": false,
                              "bInfo": false,
                               "order": [[ 3, "desc" ]],
+                              fixedColumns:   {
+            heightMatch: 'none'
+        },
 
 
                              "aaData": data,
                              "aoColumns": [
-                                 {"sTitle": "Created"},
                                  {"postid": "Postid"},
+
+                                 {"sTitle": "Created"},
 
                                  {"sTitle": "Title"},
 
@@ -302,7 +321,7 @@
                                  {
                                      "targets": -1,
                                      "data": null,
-                                     "defaultContent": "<button id ='btn2' style='width: 10em;  height: 2em;'name='btn2'>Click to see post</button>"
+                                 "defaultContent": "<button id ='btn2' name='btn2' style='background: transparent;color: #0099CC;border: 2px solid #0099CC;border-radius: 6px;border-radius: 6px;'>Click to see post</button>"
                                  }
                              ]
 
@@ -313,12 +332,12 @@
 
 
                          var data = jQuery.map(json, function (el, i) {
-                             if(el.title.length>20) {
+                             /*if(el.title.length>20) {
                                  el.title = el.title.substring(0, 10) + '..........';
-                             }
+                             }*/
                              el.created = el.created.substring(0,10);
 
-                             return [[el.created, el.postid, el.title, 'More']];
+                         return [[el.postid,el.created,el.title, 'More']];
                          });
 
                          $('#demotbl').DataTable({
@@ -326,12 +345,16 @@
                              "bLengthChange": false,
                              "bInfo": false,
                               "order": [[ 3, "desc" ]],
+                              fixedColumns:   {
+            heightMatch: 'none'
+        },
 
 
                              "aaData": data,
                              "aoColumns": [
-                                 {"sTitle": "Created"},
                                  {"postid": "Postid"},
+
+                                 {"sTitle": "Created"},
 
                                  {"sTitle": "Title"},
 
@@ -339,7 +362,7 @@
                                  {
                                      "targets": -1,
                                      "data": null,
-                                     "defaultContent": "<button id ='btn2' style='width: 10em;  height: 2em;'name='btn2' name='btn2'>Click to see post</button>"
+                                 "defaultContent": "<button id ='btn2' name='btn2' style='background: transparent;color: #0099CC;border: 2px solid #0099CC;border-radius: 6px;border-radius: 6px;'>Click to see post</button>"
                                  }
                              ]
 
@@ -351,8 +374,6 @@
 
 
          }
-
-
 
          $('#postad').click(function (e) {
              e.preventDefault()

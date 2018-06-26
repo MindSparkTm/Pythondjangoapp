@@ -3,7 +3,7 @@
 <!doctype html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="viewport" content="width=1280, initial-scale=1">
     <title>Your one stop destination to get laid</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <!--[if lt IE 9]>
@@ -15,7 +15,6 @@
 
     License: Creative Commons Attribution
     //-->
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 </head>
 
 <body>
@@ -26,7 +25,7 @@
         <header>
             <h1><a id="indexpage">PlentyofCats</a></h1>
 
-            <h2>Share what you want!</h2>
+            <p style="color:white; font-size:0.8em;margin-left:4em">Share what you want!</p>
 
         </header>
 
@@ -46,10 +45,10 @@
     <section id="content" class="column-right">
 
         <article>
-            <h2>Date,Meet,Flirt,Fuck <img src="{% static 'img/poc.png' %}" alt="plentyofcats"></img> </h2><br><br>
+            <h2 style="font-size: 2.2em">Date,Meet,Flirt,Fuck <img src="{% static 'img/poc.png' %}" alt="plentyofcats"></img> </h2><br><br>
             <p>Welcome to PlentyofCats, a free dating add website.</p><strong>No Signups, No Logins, No Phonenumber.No Membership bullshit.Your privacy is in control. Be Anonymous.</strong>
-                <p>Cut the Bullshit and lets get down to business . Just post what you are looking for <strong>free</strong> and let people contact you.</p>
-
+                <br></br><p>Cut the Bullshit and lets get down to business . Just post what you are looking for <strong>free</strong> and let people contact you.</p>
+<br><br>
 
                 <form method="post" enctype="multipart/form-data" onsubmit="return validateForm()" name="Form">
 
@@ -61,18 +60,30 @@
                     <div>
                         <label class="desc" id="title1" for="Field1">Title of Post</label>
                         <div>
-                            <textarea id="title" name="title"  spellcheck="true" rows="10" cols="5" tabindex="4"></textarea>
+                          <input type="text" id="title" name="title"  spellcheck="true" maxlength="70" style=" width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;"></input>
                         </div>
                     </div>
+                    <br>
 
                     <div>
                         <label class="desc" id="title3" for="Field3">
                             Email
                         </label>
                         <div>
-                            <input id="email" name="email" type="email" spellcheck="false" value="" maxlength="255" tabindex="3">
+                            <input id="email" style=" width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;" name="email" type="email" spellcheck="false" value="" maxlength="255" tabindex="3">
                         </div>
                     </div>
+                    <br>
 
                     <div>
                         <label class="desc" id="title4" for="Field4">
@@ -80,9 +91,18 @@
                         </label>
 
                         <div>
-                            <textarea id="description" name="description" spellcheck="true" rows="10" cols="50" tabindex="4"></textarea>
+                            <textarea id="description" name="description" spellcheck="true" rows="10" cols="50" tabindex="4" style="width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;"></textarea>
                         </div>
                     </div>
+                    <br>
+
                     <div>
                         <label class="desc" id="title106" for="Field106">
                             Select your preference
@@ -97,6 +117,8 @@
                             </select>
                         </div>
                     </div>
+                    <br>
+
 
                      <div>
                         <label class="desc" id="title106" for="Field106">
@@ -128,15 +150,19 @@
                             </select>
                         </div>
                     </div>
+                    <br>
+
 
                        <div>
                         <label class="desc" id="title3" for="Field3">
                             Age
                         </label>
                         <div>
-                            <input id="age" name="age" type="number" value="" maxlength="255" tabindex="3">
+                            <input id="age" name="age" type="number" min="18" >
                         </div>
                     </div>
+                                        <br>
+
                     <div>
                         <label class="desc" id="title4" for="Field4">
                             Upload image if you want (Optional).<br>
@@ -147,10 +173,12 @@
                         </div>
                     </div>
 
+                    <br>
 
                     <div>
                         <div>
-                            <input type="submit" class="button" value="Submit Ad" ></input>
+                            <input type="submit" value="Submit Ad" style="background: transparent;color: #0099CC;border: 2px solid #0099CC;border-radius: 6px;border-radius: 6px;
+"></input>
                         </div>
                     </div>
 
@@ -238,6 +266,11 @@ function validateForm()
 
     }
      $(document).ready(function () {
+
+         var siteWidth = 1280;
+var scale = screen.width /siteWidth
+
+document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');
 
          var s = $('#status').val();
          console.log('ss',s)

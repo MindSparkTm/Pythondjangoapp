@@ -1,11 +1,12 @@
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700);
+@import url(https://fonts.googleapis.com/css?family=Karla:400,700);
 
 /** global **/
 body {
 	margin:0px auto;
 	padding:0;
 	background: #bda9a9;
-	font-family: cursive;
+	font-family: Karla;
+
 	font-size: 1.0em;
 	color:#666;
 }
@@ -200,7 +201,15 @@ section#body {
 	padding: 0;
 	background: #882079;
 }
-
+.btn1 {
+      background-color: white;
+      color: black;
+      border: 2px solid #008CBA;
+}
+.btn1:hover {
+      background-color: #008CBA;
+      color: white;
+ }
 
 /** content+sidebar styles **/
 section#content {
