@@ -1,0 +1,350 @@
+
+{% load static %}
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=1280, initial-scale=1">
+    <title>Your one stop destination to get laid</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <!--[if lt IE 9]>
+   <![endif]-->
+    <!--
+    anatine, a free CSS web template by ZyPOP (zypopwebtemplates.com/)
+
+    Download: http://zypopwebtemplates.com/
+
+    License: Creative Commons Attribution
+    //-->
+</head>
+
+<body>
+
+<section id="body" class="width">
+    <aside id="sidebar" class="column-left">
+
+        <header>
+            <h1><a id="indexpage">PlentyofCats</a></h1>
+
+            <p style="color:white; font-size:0.8em;margin-left:4em">Share what you want!</p>
+
+        </header>
+
+        <nav id="mainnav">
+            <ul>
+                 <li class="selected-item"><a id="postad" >Post an AD</a></li>
+                <li><a id="menseekingwomen">Men seeking Women</a></li>
+                <li><a id="menseekingmen">Men seeking Men</a></li>
+                <li><a id="womenseekingmen">Women seeking Men</a></li>
+                <li><a id="womenseekingwomen">Women seeking Women</a></li>
+            </ul>
+        </nav>
+
+
+
+    </aside>
+    <section id="content" class="column-right">
+
+        <article>
+            <h2 style="font-size: 2.2em">Date,Meet,Flirt,Fuck <img src="{% static 'img/poc.png' %}" alt="plentyofcats"></img> </h2><br><br>
+            <p>Welcome to PlentyofCats, a free dating add website.</p><strong>No Signups, No Logins, No Phonenumber.No Membership bullshit.Your privacy is in control. Be Anonymous.</strong>
+                <br></br><p>Cut the Bullshit and lets get down to business . Just post what you are looking for <strong>free</strong> and let people contact you.</p>
+<br><br>
+
+                <form method="post" enctype="multipart/form-data" onsubmit="return validateForm()" name="Form">
+
+                {% csrf_token %}
+
+                            <input id="status" name="status" type="hidden" value="{{ status }}">
+
+
+                    <div>
+                        <label class="desc" id="title1" for="Field1">Title of Post</label>
+                        <div>
+                          <input type="text" id="title" name="title"  spellcheck="true" maxlength="70" style=" width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;"></input>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div>
+                        <label class="desc" id="title3" for="Field3">
+                            Email
+                        </label>
+                        <div>
+                            <input id="email" style=" width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;" name="email" type="email" spellcheck="false" value="" maxlength="255" tabindex="3">
+                        </div>
+                    </div>
+                    <br>
+
+                    <div>
+                        <label class="desc" id="title4" for="Field4">
+                            Message
+                        </label>
+
+                        <div>
+                            <textarea id="description" name="description" spellcheck="true" rows="10" cols="50" tabindex="4" style="width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;"></textarea>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div>
+                        <label class="desc" id="title106" for="Field106">
+                            Select your preference
+                        </label>
+                        <div>
+                            <select id="category" name="category" style="font-family: Cursive;  font-size: 20px;" class="field select medium" tabindex="11">
+                                <option value="msw">Men Seeking Women</option>
+                                <option value="msm">Men Seeking Men</option>
+                                <option value="wsm">Women Seeking Men</option>
+                                <option value="wsw">Women Seeking Women</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+
+
+                     <div>
+                        <label class="desc" id="title106" for="Field106">
+                            Select your country
+                        </label>
+                        <div>
+                            <select id="country" name="country" style="font-family: Cursive;  font-size: 20px;" class="field select medium" tabindex="11" onkeyup="filterFunction()">
+
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+
+                     <div>
+                        <label class="desc" id="title1" for="Field1">Enter your state</label>
+                        <div>
+                          <input type="text" id="state" name="state"  spellcheck="true" maxlength="70" style=" width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;"></input>
+                        </div>
+                    </div>
+                    <br>
+
+
+                       <div>
+                        <label class="desc" id="title3" for="Field3">
+                            Age
+                        </label>
+                        <div>
+                            <input id="age" name="age" type="number" min="18" >
+                        </div>
+                    </div>
+                                        <br>
+
+                    <div>
+                        <label class="desc" id="title4" for="Field4">
+                            Upload image if you want (Optional).<br>
+                        </label>
+
+                        <div>
+                            <input name="uploadedfile" style="font-family: Cursive;  font-size: 20px;" id="uploadedfile" type="file" />
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div>
+                        <div>
+                            <input type="submit" value="Submit Ad" style="background: transparent;color: #0099CC;border: 2px solid #0099CC;border-radius: 6px;border-radius: 6px;
+"></input>
+                        </div>
+                    </div>
+
+                </form>
+            {% if uploaded_file_url %}
+    <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+  {% endif %}
+        </article>
+    <script
+
+  src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+
+<script type="text/javascript">
+
+    var states =['Alabama','Alaska','American Samoa','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Federated States of Micronesia','Florida','Georgia','Guam','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Marshall Islands','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Northern Mariana Islands','Ohio','Oklahoma','Oregon','Palau','Pennsylvania','Puerto Rico','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virgin Island','Virginia','Washington','West Virginia','Wisconsin','Wyoming']
+
+    var sortSelect = function (select, attr, order) {
+    if(attr === 'text'){
+        if(order === 'asc'){
+            $(select).html($(select).children('option').sort(function (x, y) {
+                return $(x).text().toUpperCase() < $(y).text().toUpperCase() ? -1 : 1;
+            }));
+            $(select).get(0).selectedIndex = 0;
+        }// end asc
+        if(order === 'desc'){
+            $(select).html($(select).children('option').sort(function (y, x) {
+                return $(x).text().toUpperCase() < $(y).text().toUpperCase() ? -1 : 1;
+            }));
+            $(select).get(0).selectedIndex = 0;
+        }// end desc
+    }
+
+};
+
+    function filterFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("myDropdown");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+        if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+        } else {
+            a[i].style.display = "none";
+        }
+    }
+}
+
+
+function validateForm()
+    {
+        var a=document.forms["Form"]["title"].value;
+        var b=document.forms["Form"]["description"].value;
+        var c=document.forms["Form"]["email"].value;
+        var e=document.forms["Form"]["age"].value;
+
+        if (a==null || a=="",b==null || b=="",c==null || c=="",e==null||e=="")
+        {
+
+
+            alert("Please Fill All Required Field");
+            return false;
+        }
+
+        else {
+            var vidFileLength = $("#uploadedfile")[0].files.length;
+            if (vidFileLength === 0) {
+                alert("Please upload one picture.");
+                return false;
+
+            }
+
+            else{
+
+                alert('Your post has been successfully submitted');
+            }
+        }
+
+
+
+
+
+
+
+
+
+    }
+     $(document).ready(function () {
+
+         $.each(states, function(key, value) {
+     $('#state')
+         .append($("<option></option>")
+                    .attr("value",key)
+                    .text(value));
+});
+
+
+
+         var siteWidth = 1280;
+var scale = screen.width /siteWidth
+
+document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');
+
+         var s = $('#status').val();
+         console.log('ss',s)
+
+
+         sortSelect('#country', 'text', 'asc')
+
+         $('.selected-item').click(function (e) {
+             $('.selected-item').removeClass('selected');
+             $(this).addClass('selected');
+         });
+     });
+     $('#postad').click(function (e) {
+             e.preventDefault()
+
+             window.location.href="/plentyofcats/index"
+
+         })
+     $('#indexpage').click(function (e) {
+             e.preventDefault()
+
+             window.location.href="/plentyofcats/index"
+
+         })
+
+     $('#menseekingwomen').click(function (e) {
+             e.preventDefault()
+
+             window.location.href="/plentyofcats/menseekingwomen/"
+
+         })
+
+     $('#menseekingmen').click(function (e) {
+             e.preventDefault()
+
+             window.location.href="/plentyofcats/menseekingmen/"
+
+         })
+
+     $('#womenseekingmen').click(function (e) {
+             e.preventDefault()
+
+             window.location.href="/plentyofcats/womenseekingmen"
+
+         })
+
+     $('#womenseekingwomen').click(function (e) {
+             e.preventDefault()
+
+             window.location.href="/plentyofcats/womenseekingwomen"
+
+         })
+
+
+</script>
+
+
+
+
+        <footer class="clear">
+            <p>&copy; 2018 PlentyofCats by Anonymous<img src="{% static 'img/poc.png' %}" alt="plentyofcats"></p>
+        </footer>
+
+    </section>
+
+    <div class="clear"></div>
+
+</section>
+
+
+</body>
+</html>

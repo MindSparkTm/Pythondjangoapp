@@ -1,0 +1,428 @@
+
+{% load static %}
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>Your one stop destination to get laid</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+  <script
+
+  src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.2/jspdf.plugin.autotable.js"></script>
+
+<meta name="viewport" content="width=1280, initial-scale=1">
+</head>
+
+<body>
+
+<section id="body" class="width">
+    <aside id="sidebar" class="column-left">
+
+        <header>
+            <h1><a id="indexpage">PlentyofCats</a></h1>
+            <p style="color:white; font-size:0.8em;margin-left:4em">Share what you want!</p>
+
+
+        </header>
+
+        <nav id="mainnav">
+            <ul>
+                <li ><a id="postad" >Post an AD</a></li>
+                <li ><a id="menseekingwomen">Men seeking Women</a></li>
+                <li class="selected-item"><a id="menseekingmen">Men seeking Men</a></li>
+                <li><a id="womenseekingmen">Women seeking Men</a></li>
+                <li><a id="womenseekingwomen">Women seeking Women</a></li>
+            </ul>
+        </nav>
+
+
+
+    </aside>
+    <section id="content" class="column-right">
+
+        <article>
+         <h2 align="center">Showing latest ads for ALABAMA </h2>
+
+
+<br><br>
+
+                <form method="post" enctype="multipart/form-data">
+
+                {% csrf_token %}
+
+
+
+
+
+                     <div style="margin:0 auto;">
+                        <label class="desc" id="title106" for="Field106">
+                            Select your State &nbsp;&nbsp;
+                        </label>
+                         <select id="state" name="state" onchange="oncountrydropdownchange(this)" style="font-family: Cursive;  font-size: 20px;" class="field select medium" tabindex="11" onkeyup="filterFunction()">
+
+                            </select>
+                    </div>
+
+
+
+
+
+
+                </form>
+
+<br>
+            <div style="width: 80%">
+
+    <table id="demotbl" class="display" cellspacing="0" width="auto">
+    <thead style="display:none;">
+        <tr>
+            <th>Postid</th>
+            <th>Created</th>
+            <th>title</th>
+            <th>More</th>
+
+
+
+
+
+
+
+
+
+        </tr>
+    </thead>
+</table>
+
+</div>
+<script type="text/javascript">
+    var states =['Alabama','Alaska','American Samoa','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Federated States of Micronesia','Florida','Georgia','Guam','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Marshall Islands','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Northern Mariana Islands','Ohio','Oklahoma','Oregon','Palau','Pennsylvania','Puerto Rico','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virgin Island','Virginia','Washington','West Virginia','Wisconsin','Wyoming']
+
+   var sortSelect = function (select, attr, order) {
+    if(attr === 'text'){
+        if(order === 'asc'){
+            $(select).html($(select).children('option').sort(function (x, y) {
+                return $(x).text().toUpperCase() < $(y).text().toUpperCase() ? -1 : 1;
+            }));
+            $(select).get(0).selectedIndex = 0;
+        }// end asc
+        if(order === 'desc'){
+            $(select).html($(select).children('option').sort(function (y, x) {
+                return $(x).text().toUpperCase() < $(y).text().toUpperCase() ? -1 : 1;
+            }));
+            $(select).get(0).selectedIndex = 0;
+        }// end desc
+    }
+
+};
+
+    function filterFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("myDropdown");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+        if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+        } else {
+            a[i].style.display = "none";
+        }
+    }
+}
+
+     $(document).ready(function () {
+         var siteWidth = 1280;
+var scale = screen.width /siteWidth
+
+document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');
+
+  $.each(states, function(key, value) {
+     $('#state')
+         .append($("<option></option>")
+                    .attr("value",value)
+                    .text(value));
+});
+         sortSelect('#state', 'text', 'asc')
+
+
+
+         $.ajax({
+
+             url: "/plentyofcats/getdatafromusad",
+             type: "get",
+             data: {
+                 "category": "msm",
+                 "state": "Alabama",
+
+             },
+
+             success: function (json) {
+                 console.log(json)
+                 if (json.length === 0) {
+                     var data = jQuery.map(json, function (el, i) {
+                         return [['--', '--', '--', '--']];
+                     });
+
+
+                     $('#demotbl').DataTable({
+                         "searching": false,
+                         "bLengthChange": false,
+                         "bInfo": false,
+                          "order": [[ 3, "desc" ]],
+
+
+                         "aaData": data,
+                         "aoColumns": [
+                             {"postid": "Postid"},
+
+                             {"sTitle": "Created"},
+
+                             {"sTitle": "Title"},
+
+
+                             {
+                                 "targets": -1,
+                                 "data": null,
+                                 "defaultContent": "<button id ='btn2' name='btn2' style='background: transparent;color: #0099CC;border: 2px solid #0099CC;border-radius: 6px;border-radius: 6px;'>Click to see post</button>"
+                             }
+                         ]
+
+
+                     })
+
+                 } else {
+
+
+                     var data = jQuery.map(json, function (el, i) {
+                       /*  if(el.title.length>20){
+                             el.title = el.title.substring(0,10) + '..........';
+                         }*/
+                         el.created = el.created.substring(0,10);
+
+                         return [[el.postid,el.created,el.title, 'More']];
+                     });
+
+                     $('#demotbl').DataTable({
+                         "searching": false,
+                         "bLengthChange": false,
+                         "bInfo": false,
+                          "order": [[ 3, "desc" ]],
+
+
+
+                         "aaData": data,
+                         "aoColumns": [
+                             {"postid": "Postid"},
+
+                             {"sTitle": "Created"},
+
+                             {"sTitle": "Title"},
+
+
+                             {
+                                 "targets": -1,
+                                 "data": null,
+                                 "defaultContent": "<button id ='btn2' name='btn2' style='background: transparent;color: #0099CC;border: 2px solid #0099CC;border-radius: 6px;border-radius: 6px;'>Click to see post</button>"
+                             }
+                         ]
+
+
+                     })
+
+                     $('#demotbl tbody').on('click', 'td button', function (e) {
+                       //  e.preventDefault();
+                         console.log('selected')
+                         var tr = $(this).closest('tr');
+                         var rows = $('#demotbl').DataTable().row(tr);
+
+                         var info = rows.data();
+                         var dat = [info];
+                         var id = info[0];
+
+
+                         console.log("patientinfo", info);
+                         window.open("displaypost/id/" + id, '_blank');
+
+
+                     });
+                 }
+             }
+         })
+
+     });
+
+         function oncountrydropdownchange(state) {
+             $('h2').text('')
+             var countryname = state.value;
+             var countryname = countryname.toUpperCase();
+             $('h2').text('Showing ads for  ' + countryname)
+
+             var table = $('#demotbl').DataTable();
+             table.destroy()
+
+             console.log('country', state.value)
+
+             $.ajax({
+
+                 url: "/plentyofcats/getdatafromusad",
+                 type: "get",
+                 data: {
+                     "category": "msm",
+                     "state": state.value,
+
+                 },
+
+                 success: function (json) {
+                     console.log(json)
+                     if (json.length === 0) {
+                         var data = jQuery.map(json, function (el, i) {
+                             return [['--', '--', '--', '--']];
+                         });
+
+                         $('#demotbl').DataTable({
+                             "searching": false,
+                             "bLengthChange": false,
+                             "bInfo": false,
+                              "order": [[ 3, "desc" ]],
+
+
+                             "aaData": data,
+                             "aoColumns": [
+                                 {"postid": "Postid"},
+
+                                 {"sTitle": "Created"},
+
+                                 {"sTitle": "Title"},
+
+
+                                 {
+                                     "targets": -1,
+                                     "data": null,
+                                 "defaultContent": "<button id ='btn2' name='btn2' style='background: transparent;color: #0099CC;border: 2px solid #0099CC;border-radius: 6px;border-radius: 6px;'>Click to see post</button>"
+                                 }
+                             ]
+
+
+                         })
+
+                     } else {
+
+
+                         var data = jQuery.map(json, function (el, i) {
+                             /*if(el.title.length>20) {
+                                 el.title = el.title.substring(0, 10) + '..........';
+                             }*/
+                             el.created = el.created.substring(0,10);
+
+                         return [[el.postid,el.created,el.title, 'More']];
+                         });
+
+                         $('#demotbl').DataTable({
+                             "searching": false,
+                             "bLengthChange": false,
+                             "bInfo": false,
+                              "order": [[ 3, "desc" ]],
+
+
+                             "aaData": data,
+                             "aoColumns": [
+                                 {"postid": "Postid"},
+
+
+                                 {"sTitle": "Created"},
+
+                                 {"sTitle": "Title"},
+
+
+                                 {
+                                     "targets": -1,
+                                     "data": null,
+                                 "defaultContent": "<button id ='btn2' name='btn2' style='background: transparent;color: #0099CC;border: 2px solid #0099CC;border-radius: 6px;border-radius: 6px;'>Click to see post</button>"
+                                 }
+                             ]
+
+
+                         })
+
+
+
+                     }
+                 }
+             })
+
+
+         }
+
+
+         $('#postad').click(function (e) {
+             e.preventDefault()
+
+             window.location.href="/plentyofcats/usa"
+
+         })
+
+     $('#menseekingwomen').click(function (e) {
+             e.preventDefault()
+
+             window.location.href="/plentyofcats/menseekingwomenus/"
+
+         })
+
+     $('#menseekingmen').click(function (e) {
+             e.preventDefault()
+
+             window.location.href="/plentyofcats/menseekingmenus/"
+
+         })
+
+     $('#womenseekingmen').click(function (e) {
+             e.preventDefault()
+
+             window.location.href="/plentyofcats/womenseekingmenus/"
+
+         })
+
+     $('#womenseekingwomen').click(function (e) {
+             e.preventDefault()
+
+             window.location.href="/plentyofcats/womenseekingwomenus"
+
+         })
+ $('#indexpage').click(function (e) {
+             e.preventDefault()
+
+             window.location.href="/plentyofcats/usa"
+
+         })
+</script>
+
+
+
+
+        </article>
+
+
+
+
+
+
+
+        <footer class="clear">
+            <p>&copy; 2018 PlentyofCats by Anonymous <img src="{% static 'img/poc.png' %}" alt="plentyofcats"></p>
+        </footer>
+
+    </section>
+
+    <div class="clear"></div>
+
+</section>
+
+
+</body>
+</html>

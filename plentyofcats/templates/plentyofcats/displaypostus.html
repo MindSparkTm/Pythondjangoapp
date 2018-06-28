@@ -1,0 +1,186 @@
+
+{% load static %}
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=1280, initial-scale=1">
+    <title>Your one stop destination to get laid</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+</head>
+
+<body>
+
+<section id="body" class="width">
+    <aside id="sidebar" class="column-left">
+
+        <header>
+            <h1><a id="indexpage">PlentyofCats</a></h1>
+
+            <h2>Share what you want!</h2>
+
+        </header>
+
+        <nav id="mainnav">
+            <ul>
+                 <li><a id="postad" >Post an AD</a></li>
+                <li><a id="menseekingwomen">Men seeking Women</a></li>
+                <li><a id="menseekingmen">Men seeking Men</a></li>
+                <li><a id="womenseekingmen">Women seeking Men</a></li>
+                <li><a id="womenseekingwomen">Women seeking Women</a></li>
+            </ul>
+        </nav>
+
+
+
+    </aside>
+    <section id="content" class="column-right">
+  {% for useradobj in Useradobject %}
+
+        <article>
+            <h2>Title:  {{ useradobj.title }}&nbsp;&nbsp;<br><strong>Posted on:{{ useradobj.created }}</strong><br>Age:{{ useradobj.age }}<br>State:{{ useradobj.state }}  </h2>
+            <br><br>
+           <p>{{ useradobj.description }}</p>
+            <img src={{ useradobj.uploaded_file_url}} alt="ImageUnavailable"></img>
+        </article>
+    <br>
+<label style="margin-left: 10em;font-size: xx-large">Reply below to this ad</label><br><br>
+    <form method="post" enctype="multipart/form-data" action="{% url 'replyforad' %}">
+    {% csrf_token %}
+        <div class="content">
+
+                        <label class="desc" id="title3" for="Field3">
+                            Email
+                        </label>
+                        <div>
+                            <input id="email" style=" width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;" name="email" type="email" spellcheck="false" value="" maxlength="255" tabindex="3">
+                        </div>
+            <br><br>
+
+                      <div>
+                            <textarea id="description" name="description" spellcheck="true" rows="10" cols="50" tabindex="4" style="width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;"></textarea>
+                        </div>
+
+            <input type="hidden" name="postemail" id="postemail" value={{ useradobj.email }}>
+
+                        <br><br>
+
+            <div>
+
+                                                 Upload one picture:<input name="uploadedfile" style="font-family: Cursive;  font-size: 20px;" id="uploadedfile" type="file" /><br><br>
+
+
+            </div>
+                        <div>
+                            <input type="submit" value="Post Reply" style="background: transparent;color: #0099CC;border: 2px solid #0099CC;border-radius: 6px;border-radius: 6px;
+"></input>
+                        </div>
+
+        </div>
+    </form>
+  {% endfor %}
+
+
+    <script
+
+  src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+
+<script type="text/javascript">
+
+    $('#document').ready(function (e) {
+             var siteWidth = 1280;
+var scale = screen.width /siteWidth
+
+document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');
+
+
+    })
+
+    var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "block";
+        }
+    });
+}
+     $('#postad').click(function (e) {
+             e.preventDefault()
+
+             window.location.href="/plentyofcats/index"
+
+         })
+
+      $('#indexpage').click(function (e) {
+             e.preventDefault()
+
+             window.location.href="/plentyofcats/usa"
+
+         })
+
+     $('#menseekingwomen').click(function (e) {
+             e.preventDefault()
+
+             window.location.href="/plentyofcats/menseekingwomenus/"
+
+         })
+
+     $('#menseekingmen').click(function (e) {
+             e.preventDefault()
+
+             window.location.href="/plentyofcats/menseekingmenus/"
+
+         })
+
+     $('#womenseekingmen').click(function (e) {
+             e.preventDefault()
+
+             window.location.href="/plentyofcats/womenseekingmenus"
+
+         })
+
+     $('#womenseekingwomen').click(function (e) {
+             e.preventDefault()
+
+             window.location.href="/plentyofcats/womenseekingwomenus"
+
+         })
+
+
+</script>
+
+
+
+
+        <footer class="clear">
+            <p>&copy; 2018 PlentyofCats by Anonymous <img src="{% static 'img/poc.png' %}" alt="plentyofcats"></p>
+        </footer>
+
+    </section>
+
+    <div class="clear"></div>
+
+</section>
+
+
+</body>
+</html>
