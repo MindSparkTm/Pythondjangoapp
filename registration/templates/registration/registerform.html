@@ -1,0 +1,315 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=1280, initial-scale=1">
+    <title>Register</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+</head>
+
+<body>
+
+<section id="body" class="width">
+    <aside id="sidebar" class="column-left">
+
+        <header>
+            <h1><a id="indexpage">GymU</a></h1>
+
+            <p style="color:white; font-size:0.8em;margin-left:4em">Easy way to manage Clients!</p>
+
+        </header>
+
+        <nav id="mainnav">
+            <ul>
+                <li class="selected-item"><a id="postad">Registration</a></li>
+                <li><a id="menseekingwomen">Program</a></li>
+                <li><a id="menseekingmen">Events</a></li>
+                <li><a id="womenseekingmen">Offers</a></li>
+                <li><a id="womenseekingwomen">Client records</a></li>
+                <li><a id="womenseekingwomen">Trainer records</a></li>
+                <li><a id="womenseekingwomen">Payment records</a></li>
+
+
+            </ul>
+        </nav>
+
+
+    </aside>
+    <section id="content" class="column-right">
+
+        <article>
+            <h2 style="font-size: 2.2em">From Paper to Digital <img src="{% static 'img/logo.png' %}"
+                                                                    alt="plentyofcats"></img></h2><br><br>
+            <p>Welcome to GymU, an amazing management portal for Gyms and their Clients.</p><strong>Easy Signups, Clean
+            Records. Track everything and anything you need</strong>
+
+            <br><br>
+
+            <form method="post" enctype="multipart/form-data" onsubmit="return validateForm()" name="Form">
+                <div id = "result" style="font-size: medium;color: red">
+
+                </div>
+
+                {% csrf_token %}
+
+
+                <div>
+                    <label class="desc" id="title1" for="Field1">Name of your Gym</label>
+                    <div>
+                        <input type="text" id="gymname" name="gymname" spellcheck="true" maxlength="70" style=" width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;"><label class="required">Required field</label>
+                    </div>
+                </div>
+                <br>
+
+
+                <div>
+                    <label class="desc" id="title3" for="Field3">
+                        Email
+                    </label>
+                    <div>
+                        <input id="email" style=" width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;" name="email" type="email" spellcheck="false" value="" maxlength="255" tabindex="3"><label class="required">Required field</label>
+
+                    </div>
+                </div>
+                <br>
+
+
+                <div>
+                    <label class="desc" id="title1" for="Field1">Phonenumber</label>
+                    <div>
+                        <input type="number" id="phonenumber" name="phonenumber" spellcheck="true" maxlength="10"
+                               style=" width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;"><label class="required">Required field</label>
+
+                    </div>
+                </div>
+                <br>
+
+                <div>
+                    <label class="desc" id="title1" for="Field1">Country</label>
+                    <div>
+                        <input type="text" id="country" name="country" spellcheck="true" style=" width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;"><label class="required">Required field</label>
+
+                    </div>
+                </div>
+                <br>
+
+                <div>
+                    <label class="desc" id="title1" for="Field1">State</label>
+                    <div>
+                        <input type="text" id="state" name="state" spellcheck="true" style=" width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;"><label class="required">Required field</label>
+
+                    </div>
+                </div>
+                <br>
+
+                <div>
+                    <label class="desc" id="title1" for="Field1">Zipcode</label>
+                    <div>
+                        <input type="text" id="zipcode" name="zipcode" spellcheck="true" style=" width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;"><label class="required">Required field</label>
+
+                    </div>
+                </div>
+                <br>
+
+
+                <div>
+                    <label class="desc" id="title4" for="Field4">
+                        Address
+                    </label>
+
+                    <div>
+                            <textarea id="address" name="address" spellcheck="true" rows="8" cols="50" tabindex="4"
+                                      style="width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;"></textarea> <label class="required">Required field</label>
+
+                    </div>
+                </div>
+                <br>
+
+                <div>
+                    <label class="desc" id="title1" for="Field1">PaybillNumber <label class="notrequired">(Optional)</label></label>
+                    <div>
+                        <input type="number" id="paybillnumber" name="paybillnumber" maxlength="10" style=" width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;"></input>
+                    </div>
+                </div>
+                <br>
+
+                <div>
+                    <label class="desc" id="title1" for="Field1">Payment Phone number <label class="notrequired">(Optional)</label></label>
+                    <div>
+                        <input type="number" id="paymentnumber" name="paymentnumber" maxlength="10" style=" width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;"></input>
+                    </div>
+                </div>
+                <br>
+
+
+                <div>
+                    <label class="desc" id="title1" for="Field1"><label class="notrequired">(Optional)</label></label>
+                    <div>
+                        <input type="text" id="blog" name="blog" spellcheck="true" style=" width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;"></input>
+                    </div>
+                </div>
+                <br>
+
+                <div>
+                    <label class="desc" id="title1" for="Field1">Facebook url <label class="notrequired">(Optional)</label></label>
+                    <div>
+                        <input type="text" id="facebook" name="facebook" spellcheck="true" style=" width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;"></input>
+                    </div>
+                </div>
+                <br>
+
+                <div>
+                    <label class="desc" id="title1" for="Field1">Instagram url <label class="notrequired">(Optional)</label></label>
+                    <div>
+                        <input type="text" id="instagram" name="instagram" spellcheck="true" style=" width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;"></input>
+                    </div>
+                </div>
+                <br>
+
+                <div>
+                    <label class="desc" id="title1" for="Field1">Website <label class="notrequired">(Optional)</label></label>
+                    <div>
+                        <input type="text" id="website" name="website" spellcheck="true" style=" width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;"></input>
+                    </div>
+                </div>
+                <br>
+                <div class="container">
+                    <input type="submit" class="floated" id="register" value="Register">
+                    <input type="submit" class="floated" id="update" value="Update">
+                    <br>
+                </div>
+
+                <div>
+
+                </div>
+
+
+            </form>
+
+        </article>
+        <script
+
+                src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+
+        <script type="text/javascript">
+
+
+            function validateForm() {
+                var name = document.forms["Form"]["gymname"].value;
+                var email = document.forms["Form"]["email"].value;
+                var phonenumber = document.forms["Form"]["phonenumber"].value;
+                var address = document.forms["Form"]["address"].value;
+                var country = document.forms["Form"]["country"].value;
+                var state = document.forms["Form"]["state"].value;
+                var zipcode = document.forms["Form"]["zipcode"].value;
+
+                if (name == null || name == "" , email == null || email == "", phonenumber == null || phonenumber == "", address == null || address == "",
+                    country == "" || country == null || state == "" || state == null, zipcode == "" || zipcode == null) {
+
+                    alert("Please Fill All Required Field");
+                    $('#result').append('**One of the required field is empty. Please enter all the required fields**')
+                    return false;
+                }
+
+
+                else {
+                    $('#result').append('Your form has been successfully submitted')
+
+
+                    alert('Your post has been successfully submitted');
+
+                }
+
+
+            }
+
+
+            var siteWidth = 1280;
+            var scale = screen.width / siteWidth
+
+
+        </script>
+
+
+        <footer class="clear">
+            <p>&copy; 2018 Powered by GymU &nbsp;<img src="{% static 'img/logo.png' %}" alt="plentyofcats"></p>
+        </footer>
+
+    </section>
+
+    <div class="clear"></div>
+
+</section>
+
+
+</body>
+</html>
