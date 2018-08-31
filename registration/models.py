@@ -7,6 +7,7 @@ from django.utils import timezone
 
 class Registration(models.Model):
     id = models.AutoField(primary_key=True)
+    username = models.CharField(max_length=100)
     created = models.DateTimeField(auto_now_add=True, editable=False)
     last_updated = models.DateTimeField(auto_now=True, editable=False)
     gymname = models.CharField(max_length=100, null=True)

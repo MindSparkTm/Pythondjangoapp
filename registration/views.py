@@ -1,33 +1,34 @@
 from django.views.generic import DetailView, ListView, UpdateView, CreateView, View
 from .models import Registration
-from django.http import JsonResponse
 from django.shortcuts import render, redirect, reverse
-from django.contrib import messages
 from django.http import HttpResponseRedirect
-import pandas as pd
-from django.core.files.storage import FileSystemStorage
-from django.http import JsonResponse
-
-import sendgrid
-import os
-from sendgrid.helpers.mail import *
-import base64
-
-import logging
+from django.core.exceptions import ObjectDoesNotExist
+from django.shortcuts import get_object_or_404
 
 
 class RegistrationCreateView(CreateView):
     model = Registration
 
-    def get(self, request):
-        return render(request, 'registration/registerform.html')
+    def get(self, request, uname, *args, **kwargs):
+
+        registration = Registration.objects.filter(username=uname).values()
+        print('uname',uname)
+        self.request.session['_uname'] = uname
+
+
+        if not registration:
+            print('entered')
+            return redirect('registration:newuser')
+
+        else:
+            return render(request, 'registration/registerform.html', {'record': registration})
 
     def post(self, request):
         gymname = request.POST['gymname']
         email = request.POST['email']
         mobilenumber = request.POST['phonenumber']
         country = request.POST['country']
-        country= country.lower()
+        country = country.lower()
         state = request.POST['state']
         state = state.lower()
         zipcode = request.POST['zipcode']
@@ -46,3 +47,9 @@ class RegistrationCreateView(CreateView):
         registration.save()
 
         return HttpResponseRedirect(reverse("register"))
+
+
+class FirsttimeuserCreateView(CreateView):
+    def get(self, request):
+        uname = self.request.session['_uname']
+        return render(request, 'registration/newuser.html', {'rec': uname})

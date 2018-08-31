@@ -52,11 +52,9 @@
                 </div>
 
                 {% csrf_token %}
-                {% for rec in record %}
 
-
-                                        <label class="desc"><h3 style="margin-left: 200px">Welcome {{ rec.username }}</h3></label>
-                                        <input type="hidden" id="username"  name="username" value="{{ rec.username }}" spellcheck="true" maxlength="70" style=" width: 100%;
+                                        <label class="desc"><h3 style="margin-left: 200px">Welcome {{ rec }}</h3></label>
+                                        <input type="hidden" id="username"  name="username" value="{{ rec }}" spellcheck="true" maxlength="70" style=" width: 100%;
     padding: 12px 20px;
     display: inline-block;
     border: 1px solid #ccc;
@@ -64,15 +62,17 @@
     box-sizing: border-box;">
                                   <br>
 
+
+
                 <div>
                     <label class="desc" id="title1" for="Field1">Name of your Gym</label>
                     <div>
-                        <input type="text" id="gymname" value="{{ rec.gymname }}"  disabled name="gymname" spellcheck="true" maxlength="70" style=" width: 100%;
+                        <input type="text" id="gymname"   name="gymname" spellcheck="true" maxlength="70" style=" width: 100%;
     padding: 12px 20px;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;">
+    box-sizing: border-box;"><label class="required">Required field</label>
                     </div>
                 </div>
                 <br>
@@ -88,7 +88,7 @@
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;" name="email"  value="{{ rec.email }}" disabled type="email" spellcheck="false"  maxlength="255" tabindex="3">
+    box-sizing: border-box;" name="email"   spellcheck="false"  maxlength="255" tabindex="3"><label class="required">Required field</label>
 
                     </div>
                 </div>
@@ -98,13 +98,13 @@
                 <div>
                     <label class="desc" id="title1" for="Field1">Phonenumber</label>
                     <div>
-                        <input type="number" id="phonenumber" name="phonenumber" disabled value="{{ rec.phonenumber }}" spellcheck="true" maxlength="10"
+                        <input type="number" id="phonenumber" name="phonenumber"   spellcheck="true" maxlength="10"
                                style=" width: 100%;
     padding: 12px 20px;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;">
+    box-sizing: border-box;"><label class="required">Required field</label>
 
                     </div>
                 </div>
@@ -113,12 +113,12 @@
                 <div>
                     <label class="desc" id="title1" for="Field1">Country</label>
                     <div>
-                        <input type="text" id="country" name="country" disabled value="{{ rec.country }}" spellcheck="true" style=" width: 100%;
+                        <input type="text" id="country" name="country"   spellcheck="true" style=" width: 100%;
     padding: 12px 20px;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;">
+    box-sizing: border-box;"><label class="required">Required field</label>
 
                     </div>
                 </div>
@@ -127,12 +127,12 @@
                 <div>
                     <label class="desc" id="title1" for="Field1">State</label>
                     <div>
-                        <input type="text" id="state" name="state" disabled value="{{ rec.state }}" spellcheck="true" style=" width: 100%;
+                        <input type="text" id="state" name="state" spellcheck="true" style=" width: 100%;
     padding: 12px 20px;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;">
+    box-sizing: border-box;"><label class="required">Required field</label>
 
                     </div>
                 </div>
@@ -141,12 +141,12 @@
                 <div>
                     <label class="desc" id="title1" for="Field1">Zipcode</label>
                     <div>
-                        <input type="text" id="zipcode" name="zipcode" disabled spellcheck="true"  value="{{ rec.zipcode }}" style=" width: 100%;
+                        <input type="text" id="zipcode" name="zipcode" spellcheck="true"  style=" width: 100%;
     padding: 12px 20px;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;">
+    box-sizing: border-box;"><label class="required">Required field</label>
 
                     </div>
                 </div>
@@ -159,7 +159,7 @@
                     </label>
 
                     <div>
-                            <input type="text" id="address" name="address" disabled value="{{ rec.location }}" spellcheck="true"
+                            <textarea id="address" name="address"   spellcheck="true" rows="8" cols="50" tabindex="4"
                                       style="width: 100%;
     height: 150px;
     padding: 12px 20px;
@@ -167,16 +167,16 @@
     border: 2px solid #ccc;
     border-radius: 4px;
     background-color: #f8f8f8;
-    resize: none;"></input>
+    resize: none;"></textarea> <label class="required">Required field</label>
 
                     </div>
                 </div>
                 <br>
 
                 <div>
-                    <label class="desc" id="title1" for="Field1">PaybillNumber</label>
+                    <label class="desc" id="title1" for="Field1">PaybillNumber <label class="notrequired">(Optional)</label></label>
                     <div>
-                        <input type="number" id="paybillnumber" disabled name="paybillnumber"  value="{{ rec.paybill }}" maxlength="10" style=" width: 100%;
+                        <input type="number" id="paybillnumber" name="paybillnumber"   maxlength="10" style=" width: 100%;
     padding: 12px 20px;
     display: inline-block;
     border: 1px solid #ccc;
@@ -187,9 +187,9 @@
                 <br>
 
                 <div>
-                    <label class="desc" id="title1" for="Field1">Payment Phone number </label>
+                    <label class="desc" id="title1" for="Field1">Payment Phone number <label class="notrequired">(Optional)</label></label>
                     <div>
-                        <input type="number" id="paymentnumber" name="paymentnumber" disabled value="{{ rec.paymentcontactnumber }}" maxlength="10" style=" width: 100%;
+                        <input type="number" id="paymentnumber" name="paymentnumber"   maxlength="10" style=" width: 100%;
     padding: 12px 20px;
     display: inline-block;
     border: 1px solid #ccc;
@@ -201,9 +201,9 @@
 
 
                 <div>
-                    <label class="desc" id="title1" for="Field1">Blog</label>
+                    <label class="desc" id="title1" for="Field1">Blog<label class="notrequired">(Optional)</label></label>
                     <div>
-                        <input type="text" id="blog" disabled name="blog" spellcheck="true" value="{{ rec.blog }}" style=" width: 100%;
+                        <input type="text" id="blog" name="blog" spellcheck="true"  style=" width: 100%;
     padding: 12px 20px;
     display: inline-block;
     border: 1px solid #ccc;
@@ -214,9 +214,9 @@
                 <br>
 
                 <div>
-                    <label class="desc" id="title1" for="Field1">Facebook url </label>
+                    <label class="desc" id="title1" for="Field1">Facebook url <label class="notrequired">(Optional)</label></label>
                     <div>
-                        <input type="text" id="facebook" disabled name="facebook" spellcheck="true"value="{{ rec.facebook }}" style=" width: 100%;
+                        <input type="text" id="facebook" name="facebook" spellcheck="true" style=" width: 100%;
     padding: 12px 20px;
     display: inline-block;
     border: 1px solid #ccc;
@@ -227,9 +227,9 @@
                 <br>
 
                 <div>
-                    <label class="desc" id="title1" for="Field1">Instagram url </label>
+                    <label class="desc" id="title1" for="Field1">Instagram url <label class="notrequired">(Optional)</label></label>
                     <div>
-                        <input type="text" id="instagram" disabled name="instagram" spellcheck="true" value="{{ rec.instagram }}" style=" width: 100%;
+                        <input type="text" id="instagram" name="instagram" spellcheck="true" style=" width: 100%;
     padding: 12px 20px;
     display: inline-block;
     border: 1px solid #ccc;
@@ -240,9 +240,9 @@
                 <br>
 
                 <div>
-                    <label class="desc" id="title1" for="Field1">Website</label>
+                    <label class="desc" id="title1" for="Field1">Website <label class="notrequired">(Optional)</label></label>
                     <div>
-                        <input type="text" id="website"disabled  name="website" value="{{ rec.website }}"spellcheck="true" style=" width: 100%;
+                        <input type="text" id="website" name="website" spellcheck="true" style=" width: 100%;
     padding: 12px 20px;
     display: inline-block;
     border: 1px solid #ccc;
@@ -252,7 +252,7 @@
                 </div>
                 <br>
                 <div class="container">
-                    <input type="submit" class="floated" id="update" value="Update" >
+                    <input type="submit" class="floated" id="register" value="Register">
                     <input type="button" class="floated" id="logout" value="Logout" formnovalidate>
 
                     <br>
@@ -261,7 +261,6 @@
                 <div>
 
                 </div>
-                {% endfor %}
 
 
             </form>
